@@ -2,14 +2,14 @@
     include '../db.php';
 
     $query = "SELECT o.employee_id,e.e_name,
-              COUNT(o.employee_id) AS `products_sold` 
-              FROM PetStoreProject.Order_info AS o
-              JOIN PetStoreProject.Employees AS e
-              ON o.employee_id = e.employee_id
-              GROUP BY o.employee_id
-              ORDER BY 
-              `products_sold` DESC
-              LIMIT 1;";
+    COUNT(o.employee_id) AS `products_sold` 
+    FROM heroku_f2e5e1ad69dbf4b.order_info AS o
+    JOIN heroku_f2e5e1ad69dbf4b.employees AS e
+    ON o.employee_id = e.employee_id
+    GROUP BY o.employee_id
+    ORDER BY 
+    `products_sold` DESC
+    LIMIT 1";;
 
     $result = mysqli_query($connection , $query);
     if(!$result){

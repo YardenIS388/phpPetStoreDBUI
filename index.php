@@ -21,11 +21,12 @@
   </div>
 </nav>
 
-<div class="container" style="max-width:50%;">
+<div class="container" style="max-width:70%;">
     <br>
     <h1 class="text-primary"> Pet Store Data base  <i class="fa-solid fa-dog"></i></h1>
     <br>
-    <div class="list-group">
+    <div class="row"> 
+    <div class="list-group col-7">
         <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
         Queries
         </a>
@@ -43,8 +44,10 @@
         <a href="phpQueryFiles/manyOrders.php" class="list-group-item list-group-item-action">7. Customers With More Than One Order</a>
         <span href="#" class="list-group-item list-group-item-action d-flex justify-content-between">8. Income By Month
           <form action="phpQueryFiles/incomeByMonth.php" method="get">
-            <label for="month">Months to Show</label>
+            <div class="d-flex flex-column">
+              <label for="month">Months</label>
               <input type="number" value="0" name ="month" id="month" placeholder="Months To Show">
+            </div>
               <input type="submit" id="submit" value="See Result" class="btn btn-outline-primary">
           </form>
         </span>
@@ -52,7 +55,7 @@
         
     </div>
     <br>
-    <div class="list-group">
+    <div class="list-group col-5">
         <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
          Procedures
         </a>
@@ -86,15 +89,14 @@
          
     </div>
     <br>
-    <div class="list-group">
+    <div class="list-group col-12">
         <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
          Functions
         </a>
         <a href="#" class="list-group-item list-group-item-action">Income Per Salesman Per Month</a>
-        
     </div>
-
+  </div> 
 </div>
-    
+</div>    
 </body>
 </html>

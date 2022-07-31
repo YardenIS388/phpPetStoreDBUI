@@ -1,11 +1,11 @@
 <?php
     include '../db.php';
 
-    $query = "SELECT product_name , i.amount 
-    FROM  PetStoreProject.Products as p
-    JOIN PetStoreProject.inventory as i
+    $query = "SELECT DISTINCT product_name , i.amount 
+    FROM  heroku_f2e5e1ad69dbf4b.products as p
+    JOIN heroku_f2e5e1ad69dbf4b.inventory as i
     ON  p.product_id = i.product_id
-    JOIN PetStoreProject.Stores 
+    JOIN heroku_f2e5e1ad69dbf4b.stores 
     ON Stores.store_id ='1';";
 
     $result = mysqli_query($connection , $query);

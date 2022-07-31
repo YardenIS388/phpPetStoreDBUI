@@ -1,10 +1,10 @@
 <?php
     include '../db.php';
 
-    $query = "SELECT DISTINCT i.order_id, o.order_date, c.customer_name FROM PetStoreProject.Orders AS o
-    JOIN PetStoreProject.Order_info AS i
+    $query = "SELECT DISTINCT i.order_id, CAST(o.order_date AS DATE) AS order_date, c.customer_name FROM heroku_f2e5e1ad69dbf4b.orders AS o
+    JOIN heroku_f2e5e1ad69dbf4b.Order_info AS i
     ON o.order_id = i.order_id
-    JOIN PetStoreProject.Customers AS c
+    JOIN heroku_f2e5e1ad69dbf4b.customers AS c
     ON i.customer_id = c.customer_id 
     WHERE i.complition_status = 0;";
 

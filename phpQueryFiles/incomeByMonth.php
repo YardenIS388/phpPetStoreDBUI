@@ -4,10 +4,10 @@
    $month = $_GET["month"];
 
     $query = "SELECT SUM(i.total_price) AS total  
-    FROM PetStoreProject.Order_info AS i 
-    JOIN PetStoreProject.Orders AS o
+    FROM heroku_f2e5e1ad69dbf4b.order_info AS i 
+    JOIN heroku_f2e5e1ad69dbf4b.orders AS o
     ON   i.order_id = o.order_id
-    WHERE MONTH(order_date)=MONTH(now()-".$month.")
+    WHERE MONTH(order_date)=MONTH(now()-0)
     GROUP BY i.order_id LIMIT 1;";
 
     $result = mysqli_query($connection , $query);
