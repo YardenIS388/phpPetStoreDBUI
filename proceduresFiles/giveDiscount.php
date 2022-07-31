@@ -1,10 +1,10 @@
 <?php
     include '../db.php';
 
-    $order_id = $_GET["order_id"];
+    $order_id = $_GET["o_id"];
     $discount = $_GET["discount"];
 
-    $query = "CALL PetStoreProject.doscount(".$order_id.",".$discount.")";
+    $query = "CALL heroku_f2e5e1ad69dbf4b.doscount(".$order_id.",".$discount.")";
     $result = mysqli_query($connection , $query);
    if(!$result){
     die(" (Procedure Failure) updateOrderToComplete procedure failed  " .$connection->connect_error );

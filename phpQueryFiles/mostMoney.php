@@ -1,10 +1,10 @@
 <?php
     include '../db.php';
 
-   $month = $_GET["month"];
+  
 
-    $query = "SELECT e.e_name , i.employee_id, MAX(i.total_price) FROM PetStoreProject.Order_info AS i
-    JOIN PetStoreProject.Employees AS e 
+    $query = "	SELECT e.e_name , i.employee_id, MAX(i.total_price) max FROM heroku_f2e5e1ad69dbf4b.order_info AS i
+    JOIN heroku_f2e5e1ad69dbf4b.employees AS e 
     ON e.employee_id = i.employee_id
     GROUP BY i.employee_id
     LIMIT 1;";
@@ -40,7 +40,7 @@
 <br>
     
     <div class="container" style="max-width:50%;">
-    <h1 class="text-secondary">Last <?php ?> Month(s) Revnue</h1>
+    <h1 class="text-secondary">Employee With Most Sales</h1>
         <table class="table table-hover table-striped">
             <tr>
                 <th>Employee Name</th> 

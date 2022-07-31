@@ -3,11 +3,12 @@
 
     $week = $_GET["week"];
 
-    $query = "SELECT * FROM PetStoreProject.Orders as o
-    JOIN PetStoreProject.Order_info as i
-    ON o.order_id = i.order_id
-    JOIN PetStoreProject.Customers as c
-    ON i.customer_id = c.customer_id
+    $query = "SELECT DISTINCT c.customer_name , i.order_id , CAST( O.order_date AS DATE) AS order_date 
+    FROM heroku_f2e5e1ad69dbf4b.orders as o
+    JOIN heroku_f2e5e1ad69dbf4b.order_info as i
+    ON i.order_id = i.order_id
+    JOIN heroku_f2e5e1ad69dbf4b.customers AS c 
+    ON c.customer_id = i.customer_id
     WHERE order_date > now() - INTERVAL ".$week." WEEK;";
 
     $result = mysqli_query($connection , $query);
@@ -46,9 +47,7 @@
             <tr>
                 <th>Customer Name</th>
                 <th>Order #</th>
-                <th>Order Date</th> 
-
-                
+                <th>Order Date</th>
             </tr>
             <?php 
             while($row = mysqli_fetch_assoc($result)){
@@ -56,7 +55,7 @@
                 "<tr>
                     <td>".$row['customer_name']."</td>
                     <td>".$row['order_id']."</td> 
-                    <td>".$row['order_date']."</td> 
+                    <td>".$row['order_date']."</td>
                 </tr>";
             }
             ?>

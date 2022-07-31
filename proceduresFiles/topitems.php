@@ -4,7 +4,7 @@
     $products = $_GET["products"];
     $days = $_GET["days"];
 
-    $query = "CALL PetStoreProject.bestSellers(".$products.",".$days.")";
+    $query = "CALL heroku_f2e5e1ad69dbf4b.bestSellers(".$products.",".$days.")";
     $result = mysqli_query($connection , $query);
     $row = mysqli_fetch_assoc($result);
    if(!$result){

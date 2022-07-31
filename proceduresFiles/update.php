@@ -4,7 +4,7 @@
     $order_id = $_GET["o_id"];
     $employee_id = $_GET["e_id"];
 
-    $query = "CALL PetStoreProject.updateOrderToComplete(".$order_id.",".$employee_id.")";
+    $query = "CALL heroku_f2e5e1ad69dbf4b.updateOrderToComplete(".$order_id.",".$employee_id.")";
     $result = mysqli_query($connection , $query);
     $row = mysqli_fetch_assoc($result);
    if(!$result){

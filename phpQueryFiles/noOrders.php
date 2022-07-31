@@ -1,16 +1,18 @@
 <?php
     include '../db.php';
 
-    $query = "SELECT c.customer_name ,c.phone_number 
-    FROM PetStoreProject.Customers AS c
-    LEFT JOIN PetStoreProject.Order_info AS o 
+    $query = "SELECT DISTINCT c.customer_name ,c.phone_number 
+    FROM heroku_f2e5e1ad69dbf4b.customers AS c
+    LEFT JOIN heroku_f2e5e1ad69dbf4b.order_info AS o 
     ON o.customer_id = c.customer_id
-    WHERE o.customer_id IS NULL";
+    WHERE o.customer_id IS NOT NULL;";
 
     $result = mysqli_query($connection , $query);
     if(!$result){
             die("Query Failed (Most Products eMPLOYEE)");
     }
+    
+    
  
 ?>
 <!DOCTYPE html>
@@ -42,7 +44,7 @@
         <table class="table table-hover table-striped">
             <tr>
                 <th>Customer Name</th> 
-                <th>Customer Phone Number</th>
+                <th>Phone Number</th>
                 
             </tr>
             <?php 

@@ -2,8 +2,8 @@
     include '../db.php';
 
     $query = "SELECT DISTINCT i.customer_id, COUNT(*) , c.customer_name
-    FROM PetStoreProject.Order_info AS i
-    LEFT JOIN PetStoreProject.Customers AS c
+    FROM heroku_f2e5e1ad69dbf4b.order_info AS i
+    LEFT JOIN heroku_f2e5e1ad69dbf4b.customers AS c
     ON i.customer_id = c.customer_id
     GROUP BY i.customer_id , c.customer_name
     HAVING COUNT(*) > 1;";
