@@ -93,11 +93,18 @@
         <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
          Functions
         </a>
-        <a href="#" class="list-group-item list-group-item-action">Income Per Salesman Per Month</a>
-    </div>      
-<?php  mysqli_close($connection); ?>
+        <span class="list-group-item list-group-item-action">Income Per Salesman Per Month
+          <form action="function/employeeIncomeMonth.php">
+            <input type="number" name="month" max="12" placeholder="month m">
+            <input type="text" name="year" placeholder="year yyyy">
+            <input type="text" name="e_id" placeholder="employee_id">
+            <input type="submit" value="See Result!" class="btn btn-outline-primary">
+          </form>
+        </span>
+    </div>
   </div> 
 </div>
-</div>    
+</div> 
+
 </body>
 </html>

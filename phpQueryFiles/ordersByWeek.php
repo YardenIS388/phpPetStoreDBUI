@@ -63,7 +63,7 @@
         <a href="../index.php" class="btn btn-outline-secondary">Back to Menu <i class="fa-solid fa-share"></i></a>
     </div>
 
-
+    <?php mysqli_close($connection);?> 
     
 </body>
 </html>

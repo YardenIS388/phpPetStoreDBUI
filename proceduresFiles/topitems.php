@@ -2,8 +2,9 @@
     include '../db.php';
 
     $products = $_GET["products"];
+    $products++;
     $days = $_GET["days"];
-
+    
     $query = "CALL heroku_f2e5e1ad69dbf4b.bestSellers(".$products.",".$days.")";
     $result = mysqli_query($connection , $query);
     $row = mysqli_fetch_assoc($result);
@@ -36,14 +37,9 @@
     </a>
   </div>
 </nav>
-<br>
-    
+<br>        
     <div class="container" style="max-width:50%;">
-    <h3 class="text-secondary mb-5"> Status Update Complete</h3>
-    <div class="">
-        
-    <div class="container" style="max-width:50%;">
-    <h1 class="text-secondary">Last <?php ?> Month(s) Revnue</h1>
+    <h1 class="text-secondary">Top <?php echo $products;  ?> Items in Store </h1>
         <table class="table table-hover table-striped">
             <tr>
                 <th>Product #</th> 
@@ -57,7 +53,7 @@
                 "<tr>
                     <td>".$row['product_id']."</td> 
                     <td>".$row['product_name']."</td> 
-                    <td>".$row['value_occurrence']."</td> 
+                    <td>".$row['frequency']."</td> 
                 </tr>";
             }
             ?>
@@ -68,7 +64,7 @@
     </div>
     </div>
 
-
+    <?php mysqli_close($connection);?> 
     
 </body>
 </html>

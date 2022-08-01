@@ -1,16 +1,17 @@
 <?php
     include '../db.php';
-    $order_id = $_GET["o_id"];
+
+    $month = $_GET["month"];
+    $year = $_GET["year"];
     $employee_id = $_GET["e_id"];
-    $query = "CALL heroku_f2e5e1ad69dbf4b.updateOrderToComplete(".$order_id.",".$employee_id.")";
+
+    $query = "CALL heroku_f2e5e1ad69dbf4b.employeeMonthReport(".$month.",".$year.",".$employee_id.")";
     $result = mysqli_query($connection , $query);
-
-    if (mysqli_fetch_assoc($result) == 0){
-      die("<h1> The order Id and employee Id didnt macth </h1> <h3> Try a diffrent combination </h3>   <a href='../index.php' class='btn btn-outline-secondary'>Back to Menu <i class='fa-solid fa-share' ></i></a>");
-    }
-
     $row = mysqli_fetch_assoc($result);
-    print_r($row);
+   if(!$result){
+    die(" (Procedure Failure) employeeMonthReport " .$connection->connect_error );
+   }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,28 +37,34 @@
     </a>
   </div>
 </nav>
-<br>
-    
+<br>      
     <div class="container" style="max-width:50%;">
-    <h3 class="text-secondary mb-5"> Status Update Complete</h3>
-    <div class="">
-        
-         <div id="complete-message" >
-            <div id="V">
-               <img id="image" src="../css/images/succ.jpg" alt="">
-            </div >
-            <div>
-                <h5>Completed Order</h5>
-                <p>Order Has Changed it's Status to Completed!  </p>
-              
-                <a href="../index.php" class="btn btn-outline-secondary">Back to Menu <i class="fa-solid fa-share" ></i></a> 
-            </div>   
-         </div>
+    <h1 class="text-secondary">Employee Income Per Month</h1>
+        <table class="table table-hover table-striped">
+            <tr>
+                <th>Employee Name</th> 
+                <th>Month</th>
+                <th>Amout</th>
+                
+            </tr>
+            <?php 
+           // while($row = mysqli_fetch_assoc($result)){
+              echo  
+                "<tr>
+                    <td>".$row['e_name']."</td> 
+                    <td>".$row['month_']."</td> 
+                    <td>".$row['total']."</td> 
+                </tr>";
+            
+            ?>
+        </table>
+        <a href="../index.php" class="btn btn-outline-secondary">Back to Menu <i class="fa-solid fa-share"></i></a>
+    </div>
        
     </div>
     </div>
 
-    <?php mysqli_close($connection);?> 
+
     
 </body>
 </html>
