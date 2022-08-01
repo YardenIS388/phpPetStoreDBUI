@@ -21,12 +21,12 @@
   </div>
 </nav>
 
-<div class="container" style="max-width:70%;">
+<div class="container-fluid  col-md-10 align-self-center wrapper" >
     <br>
-    <h1 class="text-primary"> Pet Store Data base  <i class="fa-solid fa-dog"></i></h1>
+    <h1 class="text-primary col-md-10"> Pet Store Data base  <i class="fa-solid fa-dog"></i></h1>
     <br>
-    <div class="row"> 
-    <div class="list-group col-7">
+    <div class="row container-fluid p-0"> 
+    <div class="list-group col-md-7">
         <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
         Queries
         </a>
@@ -55,7 +55,7 @@
         
     </div>
     <br>
-    <div class="list-group col-5">
+    <div class="list-group col-md-5">
         <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
          Procedures
         </a>
