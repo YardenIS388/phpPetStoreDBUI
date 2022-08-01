@@ -94,7 +94,8 @@
          Functions
         </a>
         <a href="#" class="list-group-item list-group-item-action">Income Per Salesman Per Month</a>
-    </div>
+    </div>      
+<?php  mysqli_close($connection); ?>
   </div> 
 </div>
 </div>    
